@@ -1,0 +1,101 @@
+acell         3*3.833790  Angstrom   #  70 GPa
+ecutwfn       42
+
+#-------------------------------------------------------------------------------
+ndtset        25
+ecut          42             # Hartree
+nstep         1000
+gwpara        2              # 2 is default in v8 (parallelisation on bands)
+enunit        1
+
+#===============================================================================
+# DATASET 1: 
+#-------------------------------------------------------------------------------
+ngkpt         8    8    8
+nshiftk       1
+shiftk        0.0  0.0  0.0  
+istwfk       *1
+
+nband         60
+getwfk1       0
+tolvrs        1.0d-26
+
+#===============================================================================
+# common to all HSE06 datasets
+#-------------------------------------------------------------------------------
+gwcalctyp     125           # HSE06
+icutcoul      5             # short range exchange 
+rcut          9.090909      # omega term in HSE05 corresponds to omega = 1/rc = 0.11 bohr^1
+
+ecuteps       30
+ecutsigx      80     # 2 ecut # Planewaves to be used to represent the exchange operator
+
+getwfk        1
+getqps       -1             # for iterations
+gw_qprange   -60            # Compute correction for all the bands
+rhoqpmix      0.5
+
+#===============================================================================
+# DATASETS 2-30: 
+#-------------------------------------------------------------------------------
+optdriver2    4             # Self-Energy calculation
+optdriver3    4             # Self-Energy calculation
+optdriver4    4             # Self-Energy calculation
+optdriver5    4             # Self-Energy calculation
+optdriver6    4             # Self-Energy calculation
+optdriver7    4             # Self-Energy calculation
+optdriver8    4             # Self-Energy calculation
+optdriver9    4             # Self-Energy calculation
+optdriver10   4             # Self-Energy calculation
+optdriver11   4             # Self-Energy calculation
+optdriver12   4             # Self-Energy calculation
+optdriver13   4             # Self-Energy calculation
+optdriver14   4             # Self-Energy calculation
+optdriver15   4             # Self-Energy calculation
+optdriver16   4             # Self-Energy calculation
+optdriver17   4             # Self-Energy calculation
+optdriver18   4             # Self-Energy calculation
+optdriver19   4             # Self-Energy calculation
+optdriver20   4             # Self-Energy calculation
+optdriver21   4             # Self-Energy calculation
+optdriver22   4             # Self-Energy calculation
+optdriver23   4             # Self-Energy calculation
+optdriver24   4             # Self-Energy calculation
+optdriver25   4             # Self-Energy calculation
+optdriver26   4             # Self-Energy calculation
+optdriver27   4             # Self-Energy calculation
+optdriver28   4             # Self-Energy calculation
+optdriver29   4             # Self-Energy calculation
+optdriver30   4             # Self-Energy calculation
+
+#-------------------------------------------------------------------------------
+# special k-points
+#            -0.25     0.5      0.25       # W
+#             0.5      0.0      0.0        # L
+#             0.0      0.0      0.0        # Gamma
+#             0.5      0.5      0.0        # X
+#            -0.375    0.375    0.0        # K
+#             0.50000  0.25000  0.75000    # W
+#             0.50000  0.50000  0.50000    # L
+#             0.00000  0.00000  0.00000    # GAMMA
+#             0.50000  0.00000  0.50000    # X
+#             0.50000  0.25000  0.75000    # W
+#             0.37500  0.37500  0.75000    # K
+#===============================================================================
+# Structure
+#-------------------------------------------------------------------------------
+#acell        3*4.16027 Angstrom    # LDA value   
+
+rprim         0.0    0.5    0.5     # FCC primitive vectors 
+              0.5    0.0    0.5   
+              0.5    0.5    0.0
+
+# Definition of the atom types
+ntypat        2
+znucl         12 8
+
+# Definition of the atoms
+natom         2
+typat         1 2
+xred          0.0    0.0    0.0  
+              0.5    0.5    0.5  
